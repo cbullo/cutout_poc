@@ -32,7 +32,7 @@ limitations under the License.
     }
 
     #canvas-wrapper {
-      position: relative;
+      display: flex;
     }
   </style>
 </head>
@@ -40,24 +40,34 @@ limitations under the License.
 <body>
   <div id="stats"></div>
   <div id="main">
-    <div class="container">
-      <div class="canvas-wrapper">
+    <div class="container" style="display: flex;">
+      <div class="canvas-wrapper" style="flex: 1;">
         <canvas id="output"></canvas>
         <video id="video" playsinline style="
-          -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
           visibility: hidden;
           width: auto;
           height: auto;
           ">
         </video>
       </div>
+      <div class="canvas-wrapper-gl" style="
+      width: 640px;
+      height: 480px;
+      flex: 1;
+      ">
+        <canvas id="output-gl" style="
+        width: 640px;
+        height: 480px;
+        "></canvas>
+      </div>
+
     </div>
   </div>
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script>
+<script src="https://unpkg.com/mathjs@11.8.2/lib/browser/math.js"></script>
 <script src="src/index.js"></script>
 
 </html>
